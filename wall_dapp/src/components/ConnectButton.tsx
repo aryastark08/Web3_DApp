@@ -1,10 +1,14 @@
-// ConnectButton.tsx
 import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
+import Identicon from "./Identicon";
+import Props from "./AccountModal";
 
+interface ConnectButtonProps {
+  handleOpenModal: () => void;
+}
 
-export default function ConnectButton() {
+export default function ConnectButton({ handleOpenModal }: ConnectButtonProps) {
   const { activateBrowserWallet, account } = useEthers();
   const etherBalance = useEtherBalance(account);
 
@@ -26,6 +30,7 @@ export default function ConnectButton() {
         </Text>
       </Box>
       <Button
+        onClick={handleOpenModal}
         bg="gray.800"
         border="1px solid transparent"
         _hover={{
@@ -39,14 +44,7 @@ export default function ConnectButton() {
         px={3}
         height="38px"
       >
-        <Text color="white" fontSize="md" fontWeight="medium" mr="2">
-          {/* // check account is defined and then slice the string */}
-          {account &&
-            `${account.slice(0, 6)}...${account.slice(
-              account.length - 4,
-              account.length
-            )}`}
-        </Text>
+        <Identicon/>
       </Button>
     </Box>
   ) : (

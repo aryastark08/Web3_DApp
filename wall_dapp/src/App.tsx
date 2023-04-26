@@ -1,26 +1,25 @@
-import { Box, Center, ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, useDisclosure } from "@chakra-ui/react";
 import Layout from "./components/Layout";
 import ConnectButton from "./components/ConnectButton";
-import "./App.css"
-import { Heading } from "@chakra-ui/react";
+import AccountModal from "./components/AccountModal";
 
-export default function App() {
+interface AppProps {
+  handleOpenModal: () => void;
+}
+
+function App() {
+  // Pull the disclosure methods
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <ChakraProvider>
-      <Heading as='h2' size='3xl' noOfLines={1}>
-    (3xl) In love with React & Next
-  </Heading>
       <Layout>
-        <Box bgGradient='linear(to-l, #7928CA, #FF0080)' height={1000} width={"xl"} alignContent={"center"} textAlign={"center"} verticalAlign={"center"}>
-        <header className="App-header" style={{ color: "white" }}>
-          Account: XXXXXX765XXXXX
-          <br />
-          Bank Balance: 0.0002 ETH
-        </header>
-        <br />  
-          <ConnectButton />
-          </Box>
+        {/* // Our connect button will only handle opening */}
+        <ConnectButton handleOpenModal={onOpen} />
+        {/* // Our Account modal will handle open state & closing */}
+        <AccountModal isOpen={isOpen} onClose={onClose} />
       </Layout>
     </ChakraProvider>
-  )
+  );
 }
+
+export default App;
