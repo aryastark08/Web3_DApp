@@ -11,7 +11,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   return (
     <Flex bg="white" boxShadow="sm" py={2} px={4} alignItems="center">
       <Box>
-        <Link href="/" fontSize="50" fontWeight="bold" color="blue.800">Cryptnoid</Link>
+              <Link href="/" fontSize="50" fontWeight="bold" color="blue.800" style={{ textDecoration: 'none' }}>Cryptnoid</Link>
       </Box>
       <Spacer />
       <Box>
