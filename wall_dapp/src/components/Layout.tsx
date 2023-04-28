@@ -1,20 +1,18 @@
-import { ReactNode } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import Navbar from "./Navbar";
 
-type Props = {
-  children?: ReactNode;
+
+type LayoutProps = {
+  children: React.ReactNode;
 };
 
-export default function Layout({ children }: Props) {
+const Layout = ({ children }: LayoutProps) => {
   return (
-    <Flex
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      h="100vh"
-      bg="gray.800"
-    >
-      {children}
-    </Flex>
-  )
-}
+    <Box minH="100vh" display="grid" gridTemplateRows="auto 1fr auto">
+      <Navbar />
+      <Box>{children}</Box>
+    </Box>
+  );
+};
+
+export default Layout;
