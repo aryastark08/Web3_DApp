@@ -18,11 +18,11 @@ const Navbar: React.FC<NavbarProps> = () => {
       <Link href="#" mr={4} fontSize="lg" color="gray.500" padding='10px' _hover={{bg: 'gray.100', textDecoration: 'none'}} _focus={{outline: 'none'}}>
   Features
 </Link>
-<Link href="#" mr={4} fontSize="lg" color="gray.500" padding='10px' _hover={{bg: 'gray.100', textDecoration: 'none'}} _focus={{outline: 'none'}}>
+{/* <Link href="#" mr={4} fontSize="lg" color="gray.500" padding='10px' _hover={{bg: 'gray.100', textDecoration: 'none'}} _focus={{outline: 'none'}}>
   Pricing
-</Link>
+</Link> */}
 
-        <Button colorScheme="red" size="md" fontSize="lg" marginEnd={8}>Sign Up</Button>
+        <Button colorScheme="red" size="md" fontSize="lg" marginEnd={8}>Connect to Wallet</Button>
       </Box>
     </Flex>
   );

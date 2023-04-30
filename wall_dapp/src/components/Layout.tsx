@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import Navbar from "./Navbar";
+import OpenSeaNavbar from "./OpenSeaNavbar";
 
 
 type LayoutProps = {
@@ -9,7 +9,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Box minH="100vh" display="grid" gridTemplateRows="auto 1fr auto">
-      <Navbar />
+      <OpenSeaNavbar />
       <Box>{children}</Box>
     </Box>
   );
