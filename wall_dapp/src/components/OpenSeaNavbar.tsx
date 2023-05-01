@@ -1,25 +1,39 @@
 import React, { useState } from "react";
-import { Box, Flex, HStack, IconButton, Text, Avatar, Menu, MenuButton, MenuItem, MenuList, Icon, Button } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Text, Avatar, Menu, MenuButton, MenuItem, MenuList, Icon, Button, VStack } from "@chakra-ui/react";
 import { MdAccountCircle, MdWallet } from "react-icons/md";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoSearch } from "react-icons/io5";
 import Swapper from "./Swapper";
 import { FaShoppingCart } from "react-icons/fa";
 import w3_Logo from "../images/w3_Logo.jpg";
-
+import { useEthers } from "@usedapp/core";
 
 
 const OpenSeaNavbar: React.FC = () => {
 
 
-    const [walletConnected, setWalletConnected] = useState(false);
-
+    const [, setWalletConnected] = useState(false);
+    const { activateBrowserWallet, account } = useEthers();
     const handleConnectWallet = () => {
       // Perform wallet connection logic here
-      
+      activateBrowserWallet();
+      <Swapper/>
       setWalletConnected(true);
     };
 
+  account ? (<VStack><Menu>
+    <MenuButton>
+    <Avatar bg="gray.300" size="md" icon={<Icon as={MdAccountCircle} color="currentColor" size="5em" />} />
+  </MenuButton>
+      <MenuList>
+        <MenuItem>Option 1</MenuItem>
+        <MenuItem>Option 2</MenuItem>
+        <MenuItem>Option 3</MenuItem>
+        <MenuItem>Option 4</MenuItem>
+        <MenuItem>Option 5</MenuItem>
+        <MenuItem>Option 6</MenuItem>
+      </MenuList>
+    </Menu></VStack>): ( <Swapper/>);
   return (
     <Flex
       align="center"
@@ -84,12 +98,10 @@ const OpenSeaNavbar: React.FC = () => {
 
       {/* Right Section */}
           <HStack spacing="4">
-          {!walletConnected ? (
+          {/* {!walletConnected ? ( */}
               <Button leftIcon={<Icon as={MdWallet} color="currentColor" size="24px" />} variant="outline"  onClick={handleConnectWallet}>
           Connect wallet
-        </Button> ) : (
-          <Swapper/>
-        )}
+        </Button> 
         <Menu>
         <MenuButton>
         <Avatar bg="gray.300" size="md" icon={<Icon as={MdAccountCircle} color="currentColor" size="5em" />} />

@@ -38,25 +38,25 @@
 // export default App;
 
 
-import { ChakraProvider, useDisclosure,theme } from "@chakra-ui/react";
+import { ChakraProvider,theme } from "@chakra-ui/react"; /*, useDisclosure */
 import Layout from "./components/Layout";
-import ConnectButton from "./components/ConnectButton";
-import AccountModal from "./components/AccountModal";
+// import ConnectButton from "./components/ConnectButton";
+// import AccountModal from "./components/AccountModal";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import MainContent from "./components/MainContent";
 
 function App() {
   // Pull the disclosure methods
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <ChakraProvider theme={theme}>
       <Layout>
         <Hero />
         {/* // Our connect button will only handle opening */}
-        <ConnectButton handleOpenModal={onOpen} />
+        {/* <ConnectButton handleOpenModal={onOpen} /> */}
         {/* // Our Account modal will handle open state & closing */}
-        <AccountModal isOpen={isOpen} onClose={onClose} />
+        {/* <AccountModal isOpen={isOpen} onClose={onClose} /> */}
         <MainContent/>
         <Footer/>
       </Layout>
