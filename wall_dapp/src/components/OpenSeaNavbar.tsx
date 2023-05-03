@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, Flex, HStack, IconButton, Text, Avatar, Menu, MenuButton, MenuItem, MenuList, Icon, Button, VStack } from "@chakra-ui/react";
 import { MdAccountCircle, MdWallet } from "react-icons/md";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -7,6 +8,7 @@ import Swapper from "./Swapper";
 import { FaShoppingCart } from "react-icons/fa";
 import w3_Logo from "../images/w3_Logo.jpg";
 import { useEthers } from "@usedapp/core";
+// import Portfolio from "./Portfolio";
 
 
 const OpenSeaNavbar: React.FC = () => {
@@ -28,7 +30,9 @@ const OpenSeaNavbar: React.FC = () => {
       <MenuList>
         <MenuItem>Option 1</MenuItem>
         <MenuItem>Option 2</MenuItem>
-        <MenuItem>Option 3</MenuItem>
+      <MenuItem>
+        <Link to="/portfolio">Portfolio</Link>
+      </MenuItem>
         <MenuItem>Option 4</MenuItem>
         <MenuItem>Option 5</MenuItem>
         <MenuItem>Option 6</MenuItem>

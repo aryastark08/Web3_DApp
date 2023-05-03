@@ -1,3 +1,40 @@
+import {Route,Routes} from "react-router-dom"
+import { ChakraProvider,theme } from "@chakra-ui/react";
+import Layout from "./components/Layout";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import MainContent from "./components/MainContent";
+import Portfolio from "./Portfolio"
+
+function App() {
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Layout>
+        <div className="menu" style={{
+          height:"5em", width:"2em", backgroundColor:"aqua"
+        }}>
+
+          <Routes>
+          <Route path="/portfolio" Component={Portfolio}>Portfolio</Route>
+          </Routes>
+          </div>
+        <Hero />
+        <MainContent/>
+        <Footer/>
+      </Layout>
+    </ChakraProvider>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
 // import { ChakraProvider, useColorMode, useDisclosure } from "@chakra-ui/react";
 // import { useState } from "react";
 // import Layout from "./components/Layout";
@@ -36,32 +73,3 @@
 // }
 
 // export default App;
-
-
-import { ChakraProvider,theme } from "@chakra-ui/react"; /*, useDisclosure */
-import Layout from "./components/Layout";
-// import ConnectButton from "./components/ConnectButton";
-// import AccountModal from "./components/AccountModal";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import MainContent from "./components/MainContent";
-
-function App() {
-  // Pull the disclosure methods
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Hero />
-        {/* // Our connect button will only handle opening */}
-        {/* <ConnectButton handleOpenModal={onOpen} /> */}
-        {/* // Our Account modal will handle open state & closing */}
-        {/* <AccountModal isOpen={isOpen} onClose={onClose} /> */}
-        <MainContent/>
-        <Footer/>
-      </Layout>
-    </ChakraProvider>
-  );
-}
-
-export default App;
