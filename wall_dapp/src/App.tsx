@@ -1,24 +1,17 @@
-import {Route,Routes} from "react-router-dom"
+// import {Route,Routes} from "react-router-dom"
 import { ChakraProvider,theme } from "@chakra-ui/react";
 import Layout from "./components/Layout";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import MainContent from "./components/MainContent";
-import Portfolio from "./Portfolio"
+// import Portfolio from "./components/Portfolio"
 
 function App() {
 
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <div className="menu" style={{
-          height:"5em", width:"2em", backgroundColor:"aqua"
-        }}>
 
-          <Routes>
-          <Route path="/portfolio" Component={Portfolio}>Portfolio</Route>
-          </Routes>
-          </div>
         <Hero />
         <MainContent/>
         <Footer/>

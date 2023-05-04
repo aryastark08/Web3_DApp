@@ -1,33 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, createBrowserRouter,RouterProvider } from "react-router-dom";
-import App from "./App"
-// Import DAppProvider
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DAppProvider } from "@usedapp/core";
-import Portfolio from "./Portfolio";
+import Portfolio from "./components/Portfolio";
+import App from "./App";
 
-const router = createBrowserRouter([
-  {
-    path: "portfolio",
-    element: <Portfolio />
-    
-  },
-  {
-    path: "/",
-    element: <App />
-    
-  }
-])
+<link rel="stylesheet" href="./index.css"></link>
+
+const routes = () => {
+  return (
+    <Routes>
+      <Route path="*" element={<App />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="*" element={<h1>Oops! Something went wrong.</h1>} />
+    </Routes>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* 
-       Wrap our app in the provider, config is required, 
-        but can be left as an empty object: 
-    */}
-    <RouterProvider router={router}/>
-    <DAppProvider config={{}}><BrowserRouter>
-      <App /></BrowserRouter>
+    <DAppProvider config={{}}>
+      <BrowserRouter>
+      {routes()}
+      </BrowserRouter>
     </DAppProvider>
   </React.StrictMode>,
   document.getElementById("root")
