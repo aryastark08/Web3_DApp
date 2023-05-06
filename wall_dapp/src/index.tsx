@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DAppProvider } from "@usedapp/core";
 import Portfolio from "./components/Portfolio";
 import App from "./App";
+import CustomPortfolio from "./components/CustomPortfolio";
 
 <link rel="stylesheet" href="./index.css"></link>
 
@@ -12,6 +13,8 @@ const routes = () => {
     <Routes>
       <Route path="*" element={<App />} />
       <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/customportfolio" element={<CustomPortfolio />} />
+      
       <Route path="*" element={<h1>Oops! Something went wrong.</h1>} />
     </Routes>
   );
