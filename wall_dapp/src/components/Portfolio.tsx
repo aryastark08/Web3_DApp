@@ -146,6 +146,7 @@
 import React, { useState, useEffect } from "react";
 import {
   Box,
+  Button,
   Center,
   ChakraProvider,
   Spinner,
@@ -158,6 +159,7 @@ import Web3 from "web3";
 import axios from "axios";
 import OpenSeaNavbar from "./OpenSeaNavbar";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 interface NftData {
   name: string;
@@ -217,10 +219,31 @@ const Portfolio: React.FC<Props> = ({ address, contractAddress }) => {
   return (
     <ChakraProvider theme={theme}>
       <OpenSeaNavbar />
+      <Box m={7} mb={10}>
+        <Button
+          bgColor={"#0BC5EA"}
+          fontSize={"2xl"}
+          textColor={"white"}
+          alignItems={"center"}
+          top={"10"}
+          height={"55"}
+          width={"58"}
+          _hover={{
+            borderStyle: "solid",
+            borderColor: "blue.400",
+            backgroundColor: "gray.700",
+          }}
+        >
+          <Link to={"/customportfolio"} rel="CustomPortfolio" target="blank">
+            Create Collection
+          </Link>
+        </Button>
+      </Box>
       <Box>
         {isLoading ? (
           <Center h="100px">
             <Spinner />
+            &nbsp; &nbsp; <Text>No NFTs found.</Text>
           </Center>
         ) : nftData.length > 0 ? (
           <VStack spacing="4">
