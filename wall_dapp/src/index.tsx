@@ -6,15 +6,18 @@ import Portfolio from "./components/Portfolio";
 import App from "./App";
 import CustomPortfolio from "./components/CustomPortfolio";
 
-<link rel="stylesheet" href="./index.css"></link>
+<link rel="stylesheet" href="./index.css"></link>;
 
 const routes = () => {
   return (
     <Routes>
       <Route path="*" element={<App />} />
-      <Route path="/portfolio" element={<Portfolio />} />
+      <Route
+        path="/portfolio"
+        element={<Portfolio address={""} contractAddress={""} />}
+      />
       <Route path="/customportfolio" element={<CustomPortfolio />} />
-      
+
       <Route path="*" element={<h1>Oops! Something went wrong.</h1>} />
     </Routes>
   );
@@ -23,9 +26,7 @@ const routes = () => {
 ReactDOM.render(
   <React.StrictMode>
     <DAppProvider config={{}}>
-      <BrowserRouter>
-      {routes()}
-      </BrowserRouter>
+      <BrowserRouter>{routes()}</BrowserRouter>
     </DAppProvider>
   </React.StrictMode>,
   document.getElementById("root")
