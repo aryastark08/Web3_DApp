@@ -43,7 +43,7 @@ const Swapper = () => {
       <Input
         type="number"
         placeholder="Enter input amount"
-        value={inputAmount}
+        value={inputAmount.toString()}
         onChange={handleInputChange}
         mb={4}
       />

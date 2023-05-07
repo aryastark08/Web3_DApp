@@ -1,9 +1,20 @@
-import { Button, Box, Text, Icon } from "@chakra-ui/react";
+import {
+  Button,
+  Box,
+  Text,
+  Icon,
+  PopoverTrigger,
+  Popover,
+  PopoverContent,
+  PopoverBody,
+  PopoverCloseButton,
+  Portal,
+} from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
 import { MdWallet } from "react-icons/md";
-// import Swapper from "./Swapper";
+import Swapper from "./Swapper";
 // import Props from "./AccountModal";
 
 type ConnectButtonProps = {
@@ -40,12 +51,30 @@ export default function ConnectButton({ handleOpenModal }: ConnectButtonProps) {
           backgroundColor: "gray.700",
         }}
         borderRadius="xl"
-        m="1px"
-        px={3}
+        mr="1.5em"
+        px={4}
         height="38px"
       >
         <Identicon />
       </Button>
+      <Popover>
+        <PopoverTrigger>
+          <Button
+            leftIcon={<Icon as={MdWallet} color="currentColor" size="30px" />}
+            variant="outline"
+          >
+            Connect wallet
+          </Button>
+        </PopoverTrigger>
+        <Portal>
+          <PopoverContent>
+            <PopoverCloseButton />
+            <PopoverBody>
+              <Swapper />
+            </PopoverBody>
+          </PopoverContent>
+        </Portal>
+      </Popover>
       {/* <Swapper /> */}
     </Box>
   ) : (
